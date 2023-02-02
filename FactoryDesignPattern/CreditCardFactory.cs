@@ -1,4 +1,6 @@
-﻿namespace FactoryDesignPattern
+﻿using BusinessObject;
+
+namespace FactoryDesignPattern
 {
     public class CreditCardFactory
     {
@@ -11,15 +13,15 @@
         {
             ICreditCard cardDetails = null;
 
-            if (cardType == "Rupay")
+            if (cardType == EnumCardType.Rupay.ToString())
             {
                 cardDetails = new Rupay();
             }
-            else if (cardType == "Titanium")
+            else if (cardType == EnumCardType.Titanium.ToString())
             {
                 cardDetails = new Titanium();
             }
-            else if (cardType == "Platinum")
+            else if (cardType == EnumCardType.Platinum.ToString())
             {
                 cardDetails = new Platinum();
             }
