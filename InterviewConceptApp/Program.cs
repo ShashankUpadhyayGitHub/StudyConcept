@@ -77,5 +77,16 @@ namespace InterviewConceptApp
 
             Console.ReadLine();
         }
+
+        public void ExecuteMethod()
+        {
+            //LogicalStudy.FibonacciSeries(20);
+
+            //SwitchCaseStatement();
+
+            //Factorial(5);
+
+            //BindLogic();
+        }
     }
 }
