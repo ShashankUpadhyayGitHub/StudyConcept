@@ -1,6 +1,7 @@
 ﻿using BusinessObject;
 using CommonStudy;
 using FactoryDesignPattern;
+using SingletonPattern;
 using System;
 using System.Threading;
 
@@ -10,6 +11,7 @@ namespace InterviewConceptApp
     {
         static Thread firstThread = new Thread(new ThreadStart(ThreadStudy.fun1));
         static Thread secondThread = new Thread(new ThreadStart(ThreadStudy.fun2));
+        static AbstractStudy objAbstract = new AbstractStudy();
 
         static void Main(string[] args)
         {
@@ -19,26 +21,44 @@ namespace InterviewConceptApp
             {
                 foreach (string item in args)
                 {
-                    ICreditCard cardInfo = CreditCardFactory.GetCreditCard(item);
+                    ICreditCard objCardInfo = FactoryInfo.GetCreditCard(item);
 
-                    if (cardInfo != null)
+                    ICarSupplier objCarInfo = FactoryInfo.GetCarInfo(item);
+
+                    if (objCardInfo != null)
                     {
-                        Console.WriteLine("CardType : " + cardInfo.GetCardType());
-                        Console.WriteLine("CreditLimit : " + cardInfo.GetCreditLimit());
-                        Console.WriteLine("AnnualCharge :" + cardInfo.GetAnnualCharge());
+                        Console.WriteLine("CardType : " + objCardInfo.GetCardType());
+                        Console.WriteLine("CreditLimit : " + objCardInfo.GetCreditLimit());
+                        Console.WriteLine("AnnualCharge : " + objCardInfo.GetAnnualCharge());
+                    }
+                    else if (objCarInfo != null)
+                    {
+                        Console.WriteLine(String.Format("{0} And Coloar is {1}.", objCarInfo.GetCarModel(), objCarInfo.CarColor));
                     }
                     else
                     {
-                        Console.Write("Invalid Card Type");
+                        Console.Write("Sorry! Invalid Selection");
                     }
                 }
             }
             else
             {
-                Console.Write("Oops! Invalid Selection");
+                Console.Write("Oops! something went wrong.");
             }
 
             //--------Factory Design pattern--------//
+
+            //--------Singleton pattern--------//
+
+            SingletonInfo.GetSingletonClass();
+
+            //--------Singleton pattern--------//
+
+            //--------Abstract Example--------//
+
+            objAbstract.Add(1, 2);
+
+            //--------Abstract Example--------//
 
             //--------Delegate Example--------//
 
@@ -78,8 +98,26 @@ namespace InterviewConceptApp
             Console.ReadLine();
         }
 
+        public void IsPrime()
+        {
+            Console.WriteLine("Enter a number");
+            int number = Convert.ToInt32(Console.ReadLine());
+            int result = LogicalStudy.PrimeNumberByInput(number);
+            if (result == 0)
+            {
+                Console.WriteLine("{0} is not a prime number", number);
+            }
+            else
+            {
+                Console.WriteLine("{0} is  a prime number", number);
+            }
+            Console.Read();
+        }
+
         public void ExecuteMethod()
         {
+            int[] Num = { 20, 10, 50, 46, 26, 87, 25, 5, 97, 24 };
+            
             //LogicalStudy.FibonacciSeries(20);
 
             //SwitchCaseStatement();
@@ -87,6 +125,20 @@ namespace InterviewConceptApp
             //Factorial(5);
 
             //BindLogic();
+
+            //FindDuplicateArray();
+
+            //BindReverse();
+
+            //BindTriangle();
+
+            //BindStar();
+
+            //BindStarPyramid();
+
+            //PrimeNumber();
+
+            //AscendingArray(Num);
         }
     }
 }

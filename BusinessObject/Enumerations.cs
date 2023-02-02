@@ -1,4 +1,6 @@
-﻿namespace BusinessObject
+﻿using System.ComponentModel;
+
+namespace BusinessObject
 {
     /// <summary>
     /// Enum Days
@@ -14,6 +16,14 @@
         Saturday
     }
 
+    public enum EnumColor
+    {
+        RED,
+        WHITE,
+        YELLOW,
+        Orange
+    }
+
     /// <summary>
     /// Enum Card Type
     /// </summary>
@@ -22,5 +32,18 @@
         Rupay,
         Titanium,
         Platinum
+    }
+
+    /// <summary>
+    /// Enum Card Type
+    /// </summary>
+    public enum EnumCardInfo
+    {
+        [Description("Rupay")]
+        Rupay = 1,
+        [Description("Titanium Edge")]
+        Titanium = 2,
+        [Description("Platinum Plus")]
+        Platinum = 3
     }
 }

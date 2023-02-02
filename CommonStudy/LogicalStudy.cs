@@ -20,21 +20,71 @@ namespace CommonStudy
             return new String(array);
         }
 
-        private static int Check_Prime(int number)
+        public void PrimeNumber()
+        {
+            int a = Convert.ToInt32(4);
+            bool isPrime = true;
+
+            for (int i = 1; i <= a; i++)
+            {
+                for (int j = 2; j <= a; j++)
+                {
+                    if (i != j && i % j == 0)
+                    {
+                        isPrime = false;
+
+                        break;
+                    }
+                }
+
+                if (isPrime)
+                {
+                    Console.WriteLine("Prime:" + i);
+                }
+
+                isPrime = true;
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                if (IsPrimeNumber(i) == true)
+                    ToopPrimeNumber = ToopPrimeNumber + "'{0,8:n}\t', " + i + "";
+            }
+        }
+
+        public static int PrimeNumberByInput(int input)
         {
             int i;
-            for (i = 2; i <= number - 1; i++)
+            for (i = 2; i <= input - 1; i++)
             {
-                if (number % i == 0)
+                if (input % i == 0)
                 {
                     return 0;
                 }
             }
-            if (i == number)
+            if (i == input)
             {
                 return 1;
             }
             return 0;
+        }
+
+        public bool IsPrimeNumber(int input)
+        {
+            bool Prime = true;
+
+            int factor = input / 2;
+
+            int i = 0;
+
+            for (i = 2; i <= factor; i++)
+            {
+                if ((input % i) == 0)
+
+                    Prime = false;
+            }
+
+            return Prime;
         }
 
         //-------------------Example Arranging values of array in Ascending order-----------------------//
@@ -339,56 +389,6 @@ namespace CommonStudy
             }
         }
 
-        public void PrimeNumber()
-        {
-            int a = Convert.ToInt32(4);
-            bool isPrime = true;
-
-            for (int i = 1; i <= a; i++)
-            {
-                for (int j = 2; j <= a; j++)
-                {
-                    if (i != j && i % j == 0)
-                    {
-                        isPrime = false;
-
-                        break;
-                    }
-                }
-
-                if (isPrime)
-                {
-                    Console.WriteLine("Prime:" + i);
-                }
-
-                isPrime = true;
-            }
-
-            for (int i = 0; i < 10; i++)
-            {
-                if (IsPrimeNumber(i) == true)
-                    ToopPrimeNumber = ToopPrimeNumber + "'{0,8:n}\t', " + i + "";
-            }
-        }
-
-        public bool IsPrimeNumber(int num)
-        {
-            bool Prime = true;
-
-            int factor = num / 2;
-
-            int i = 0;
-
-            for (i = 2; i <= factor; i++)
-            {
-                if ((num % i) == 0)
-
-                    Prime = false;
-            }
-
-            return Prime;
-        }
-
         public void FibonacciSeries(int FinalNumber)
         {
             //-------------------Fibonacci Series (For Loop)-----------------------//
@@ -405,6 +405,54 @@ namespace CommonStudy
 
                 ToopFibonacci = ToopFibonacci + Second + ",";
             }
+        }
+
+        public static void PalindromeInteger()
+        {
+            int num, temp, remainder, reverse = 0;
+            Console.WriteLine("Enter an integer \n");
+            num = int.Parse(Console.ReadLine());
+            temp = num;
+            while (num > 0)
+            {
+                remainder = num % 10;
+                reverse = reverse * 10 + remainder;
+                num /= 10;
+            }
+            Console.WriteLine("Given number is = {0}", temp);
+            Console.WriteLine("Its reverse is  = {0}", reverse);
+            if (temp == reverse)
+                Console.WriteLine("Number is a palindrome \n");
+            else
+                Console.WriteLine("Number is not a palindrome \n");
+            Console.ReadLine();
+        }
+
+        public static void PalindromeString()
+        {
+            string str, revstr;
+            Console.WriteLine("Enter Any String to Know It is Palindrome or not");
+            str = Console.ReadLine();
+            //str = "aba";
+            //str = args[0].ToString();
+            //str = args[1].ToString();
+            char[] tempstr = str.ToCharArray();
+            Array.Reverse(tempstr);
+            revstr = new string(tempstr);
+            bool caseignore = str.Equals(revstr, StringComparison.OrdinalIgnoreCase);
+            if (caseignore == true)
+            {
+                //Page.ClientScript.RegisterStartupScript(this.GetType(), "KeyMsg", "alert('" + str + " Is a Palindrome');", true);
+
+                Console.WriteLine("............" + str + " Is a Palindrome..........");
+            }
+            else
+            {
+                //Page.ClientScript.RegisterStartupScript(this.GetType(), "KeyMsg", "alert('" + str + " Is Not a Palindrome');", true);
+
+                Console.WriteLine("............" + str + " Is Not a Palindrome........");
+            }
+            Console.Read();
         }
 
         public void SwitchCaseStatement()
