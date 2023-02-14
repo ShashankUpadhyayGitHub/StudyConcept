@@ -81,9 +81,8 @@ namespace InterviewConceptApp
 
             //--------Sealed Class Example--------//
 
-            SealedClass sealedCls = new CommonStudy.SealedClass();
-            int total = sealedCls.Add(4, 5);
-            Console.WriteLine("Total = " + total.ToString());
+            DerivedClass dc = new DerivedClass();
+            Console.WriteLine("Total: ", dc.Add(4, 5));
 
             //--------Sealed Class Example--------//
 
