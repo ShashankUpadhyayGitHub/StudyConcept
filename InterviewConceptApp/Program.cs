@@ -2,6 +2,7 @@
 using CommonStudy;
 using FactoryDesignPattern;
 using SingletonPattern;
+using SolidPrinciples;
 using System;
 using System.Threading;
 
@@ -48,11 +49,22 @@ namespace InterviewConceptApp
 
             //--------Factory Design pattern--------//
 
-            //--------Singleton pattern--------//
+            //--------Singleton Pattern--------//
 
             SingletonInfo.GetSingletonClass();
 
-            //--------Singleton pattern--------//
+            //--------Singleton Pattern--------//
+
+            //--------Dependency Inversion--------//
+
+            //---UI Layer-- -
+            MiddleLayer objML = new MiddleLayer(new SQLServerDAL());
+
+            objML.PersonName = "Shashank Upadhyay";
+
+            objML.Add();
+
+            //--------Dependency Inversion--------//
 
             //--------Abstract Example--------//
 
@@ -117,7 +129,7 @@ namespace InterviewConceptApp
         public void ExecuteMethod()
         {
             int[] Num = { 20, 10, 50, 46, 26, 87, 25, 5, 97, 24 };
-            
+
             //LogicalStudy.FibonacciSeries(20);
 
             //SwitchCaseStatement();

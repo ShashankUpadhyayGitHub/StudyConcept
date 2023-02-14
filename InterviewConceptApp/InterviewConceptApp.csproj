@@ -10,6 +10,7 @@
     <ProjectReference Include="..\CommonStudy\CommonStudy.csproj" />
     <ProjectReference Include="..\FactoryDesignPattern\FactoryDesignPattern.csproj" />
     <ProjectReference Include="..\SingletonPattern\SingletonPattern.csproj" />
+    <ProjectReference Include="..\SolidPrinciples\SolidPrinciples.csproj" />
   </ItemGroup>
 
 </Project>
