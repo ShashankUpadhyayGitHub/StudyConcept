@@ -9,6 +9,61 @@ namespace CommonStudy
 
         public string ToopFibonacci, ToopSwitchCase = string.Empty;
 
+        public string SortIntegerArray(int[] inputArray)
+        {
+            int length = inputArray.Length;
+
+            // Sorting using a single loop
+            for (int j = 0; j < length - 1; j++)
+            {
+
+                // Checking the condition for two
+                // simultaneous elements of the array
+                if (inputArray[j] > inputArray[j + 1])
+                {
+
+                    // Swapping the elements.
+                    int temp = inputArray[j];
+                    inputArray[j] = inputArray[j + 1];
+                    inputArray[j + 1] = temp;
+
+                    // updating the value of j = -1
+                    // so after getting updated for j++
+                    // in the loop it becomes 0 and
+                    // the loop begins from the start.
+                    j = -1;
+                }
+            }
+            return String.Join(", ", inputArray);
+        }
+
+        public string SortStringArray(char[] inputArray)
+        {
+            // Finding the length of array 'arr'
+            int length = inputArray.Length;
+
+            // Sorting using a single loop
+            for (int j = 0; j < inputArray.Length - 1; j++)
+            {
+
+                // Type Conversion of char to int.
+                int d1 = inputArray[j];
+                int d2 = inputArray[j + 1];
+
+                // Comparing the ascii code.
+                if (d1 > d2)
+                {
+
+                    // Swapping of the characters
+                    char temp = inputArray[j];
+                    inputArray[j] = inputArray[j + 1];
+                    inputArray[j + 1] = temp;
+                    j = -1;
+                }
+            }
+            return String.Join(", ", inputArray);
+        }
+
         public string Reverse(string text)
         {
             if (text == null) return null;
@@ -563,5 +618,3 @@ namespace CommonStudy
         }
     }
 }
-
-

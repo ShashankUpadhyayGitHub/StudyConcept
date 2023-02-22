@@ -18,6 +18,8 @@ namespace InterviewConceptApp
         {
             //--------Factory Design pattern--------//
 
+            //var res = "CardType".Equals("CardType");
+
             if (args.Length > 0)
             {
                 foreach (string item in args)
